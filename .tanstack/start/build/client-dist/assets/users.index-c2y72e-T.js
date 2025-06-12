@@ -1,0 +1,1 @@
+import{j as e}from"./main-DRHOiuU2.js";const t=function(){return e.jsxs("div",{children:["Select a user or"," ",e.jsx("a",{href:"/api/users",className:"text-blue-800 hover:text-blue-600 underline",children:"view as JSON"})]})};export{t as component};

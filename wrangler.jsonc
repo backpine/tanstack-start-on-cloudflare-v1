@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tanstack-start-on-workers-beta",
+  "main": ".output/server/index.mjs",
+  "compatibility_date": "2025-04-10",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".output/public",
+  },
+  "observability": {
+    "enabled": true,
+  },
+  "kv_namespaces": [
+    {
+      "binding": "CACHE",
+      "id": "243100874d9447bfa10a820bcbf51ede",
+    },
+  ],
+}
