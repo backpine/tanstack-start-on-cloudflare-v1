@@ -7,8 +7,10 @@ const personServerFn = createServerFn({ method: "GET" })
   .validator((d: string) => d)
   .handler(async ({ data: name }) => {
     const env = getBindings();
-    const user = await env.CACHE.get("user");
-    return { name, randomNumber: Math.floor(Math.random() * 100) };
+    let growingAge = Number((await env.CACHE.get("age")) || 0);
+    growingAge++;
+    await env.CACHE.put("age", growingAge.toString());
+    return { name, randomNumber: growingAge };
   });
 
 const slowServerFn = createServerFn({ method: "GET" })

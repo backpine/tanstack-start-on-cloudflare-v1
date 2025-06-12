@@ -1,21 +1,21 @@
 let cachedEnv: Env | null = null;
 
-// This gets called once at startup
+// This gets called once at startup when running locally
 const initDevEnv = async () => {
-  if (import.meta.env.DEV) {
-    const { getPlatformProxy } = await import("wrangler");
-    const proxy = await getPlatformProxy();
-    cachedEnv = proxy.env as unknown as Env;
-  }
+  const { getPlatformProxy } = await import("wrangler");
+  const proxy = await getPlatformProxy();
+  cachedEnv = proxy.env as unknown as Env;
 };
 
-initDevEnv();
+if (import.meta.env.DEV) {
+  await initDevEnv();
+}
 
 export function getBindings(): Env {
   if (import.meta.env.DEV) {
     if (!cachedEnv) {
       throw new Error(
-        "Dev bindings not initialized yet. Call initDevEnv() first.",
+        "Dev bindings not initialized yet. fCall initDevEnv() first.",
       );
     }
     return cachedEnv;
