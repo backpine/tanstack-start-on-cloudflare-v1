@@ -13,7 +13,7 @@
   "kv_namespaces": [
     {
       "binding": "CACHE",
-      "id": "243100874d9447bfa10a820bcbf51ede",
+      "id": "<Your KV ID>",
     },
   ],
 }
